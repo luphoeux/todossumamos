@@ -78,11 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'Educación': '#3498db'
     };
 
-    // Usamos un proxy de CORS (corsproxy.io) para evitar el bloqueo 'Origin null'
-    // que ocurre cuando abres el archivo HTML haciendo doble clic desde tu disco duro (file://)
-    const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(csvUrl);
-
-    fetch(proxyUrl)
+    // Hacemos el fetch directamente al URL de Google Sheets (soporta CORS oficial de Google)
+    fetch(csvUrl)
       .then(response => response.text())
       .then(csvText => {
         // Simple CSV parser handling quotes
