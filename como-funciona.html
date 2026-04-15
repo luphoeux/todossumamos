@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quiénes somos? | Todos Somos - Qhantuy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Steps grid (legacy, kept for safety) ── */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
+
+    /* ── Nuevo grid de pasos ── */
+    .pasos-fila1 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .pasos-fila2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    @media (max-width: 768px) {
+      .steps-grid   { grid-template-columns: 1fr; }
+      .pasos-fila1  { grid-template-columns: 1fr; }
+      .pasos-fila2  { grid-template-columns: 1fr; }
+      /* Hero responsive */
+      #quienes-somos > .container { grid-template-columns: 1fr !important; }
+      #quienes-somos > .container > div:last-child { display: none; } /* oculta foto en mobile muy pequeño si se desea; comentar para mantenerla */
+    }
+    .step-card {
+      background: #eef2ff;
+      padding: 30px;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid #d9e2ec;
+    }
+    .step-number {
+      background: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ── Donut chart ── */
+    .donut-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+    }
+    .donut-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .donut-bg   { fill: none; stroke: #2a4a3e; stroke-width: 20; }
+    .donut-main { fill: none; stroke: #2cb378; stroke-width: 20; stroke-linecap: round;
+                  stroke-dasharray: 440; stroke-dashoffset: 66; /* 440*(1-0.85)=66 */ transition: stroke-dashoffset 1.2s ease; }
+    .donut-accent { fill: none; stroke: #f1b32b; stroke-width: 20; stroke-linecap: round;
+                    stroke-dasharray: 440; stroke-dashoffset: 396; /* 440*0.9=396 offset */ }
+    .donut-label {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: white;
+    }
+    .donut-label strong { font-size: 36px; font-weight: 800; line-height: 1; }
+    .donut-label span   { font-size: 12px; opacity: .7; margin-top: 2px; }
+
+    /* ── Legend rows ── */
+    .legend-dot {
+      width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+    }
+    .legend-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+    .legend-row h4 { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+    .legend-row p  { margin: 0; font-size: 13px; opacity: .75; line-height: 1.45; }
+  </style>
+</head>
+<body>
+
+  <app-header></app-header>
+
+  <!-- ══ HERO ══ -->
+  <section id="quienes-somos" style="padding: 70px 0 50px; overflow: hidden;">
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+
+      <!-- Texto izquierda -->
+      <div>
+        <p class="hero-tagline" style="justify-content: flex-start;">
+          <img src="images/todos somos images/heart.svg" alt="" style="width:22px;height:22px;object-fit:contain;">
+          <span>Comienza a ayudar a personas que lo necesitan</span>
+        </p>
+        <h1 style="font-size: clamp(36px, 4.5vw, 58px); color: var(--dark); margin: 16px 0 24px; font-weight: 800; line-height: 1.1;">Construyendo el<br>Colectivo Humano.</h1>
+        <p style="font-size: 17px; color: var(--text-muted); max-width: 480px; line-height: 1.65;">
+          Transformamos la solidaridad en impacto real. Aprende cómo nuestra plataforma conecta voluntades para cambiar realidades en Bolivia.
+        </p>
+      </div>
+
+      <!-- Foto derecha rotada + badge -->
+      <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+        <img src="images/todos somos images/quienes_somos_portada.png"
+             alt="Equipo Todos Somos"
+             style="width: 90%; max-width: 430px; height: auto; border-radius: 24px;
+                    transform: rotate(3deg);
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.14);">
+        <!-- Badge -->
+        <div style="position: absolute; bottom: 10px; left: 4%; background: #1a73e8; color: white;
+                    padding: 10px 16px; border-radius: 12px; font-size: 13px; font-weight: 600;
+                    max-width: 180px; line-height: 1.4; box-shadow: 0 4px 16px rgba(26,115,232,0.35);">
+          Más de 100 causas verificadas con éxito en el último año.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+ <section id="quienes-somos" class="container mb-2" style="padding-top: 40px; padding-bottom: 40px;">
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center;">
+      
+      <!-- Imagen de la izquierda -->
+      <div style="text-align: center;">
+        <img src="images/todos somos images/quienes_somos_bg.png" alt="Quiénes somos - Solidaridad" style="width: 100%; max-width: 500px; height: auto; object-fit: contain;">
+      </div>
+      
+      <!-- Contenido de la derecha (Tarjetas) -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- Tarjeta Superior (Descripción) -->
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+          <p class="hero-tagline" style="justify-content: flex-start; font-size: 19px; margin-bottom: 12px; color: var(--primary);">
+            <img src="images/todos somos images/heart.svg" alt="Heart" style="width: 24px; height: 24px; object-fit: contain;">
+            <span style="font-family: 'Caveat', cursive;">¿Quiénes somos?</span>
+          </p>
+          <h2 style="font-size: 38px; margin-bottom: 20px; color: #113629; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px;">Tu apoyo cambia realidades</h2>
+          <p style="color: #4a5568; font-size: 17px; line-height: 1.6; margin-bottom: 0;">
+            Creemos en el poder de la solidaridad colectiva para transformar Bolivia. En Todos Sumamos contactamos corazones generosos con proyectos que necesitan un impulso para generar un impacto real y sostenible.
+          </p>
+        </div>
+
+        <!-- Tarjeta Inferior (Pasos para apoyar) -->
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+          
+          <!-- Pestañas (Tabs) -->
+          <div style="background: #F4F7F6; display: inline-flex; border-radius: 50px; padding: 6px; margin-bottom: 35px;">
+            <div style="background: #2cb378; color: white; padding: 10px 24px; border-radius: 50px; font-weight: 700; font-size: 15px; cursor: default;">Quiero Apoyar</div>
+            <a href="#pasos" style="color: #718096; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s ease;">Quiero Recaudar</a>
+          </div>
+
+          <!-- Tres Pasos -->
+          <div style="display: flex; flex-direction: column; gap: 25px;">
+            
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso1.svg" alt="Encuentra una causa" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Encuentra una causa:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Explora cientos de historias verificadas que necesitan tu apoyo en todo el país.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso2.svg" alt="Dona con confianza" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Dona con confianza:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Utiliza métodos seguros como QR Simple para que tu ayuda llegue sin intermediarios.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso3.svg" alt="Mira el impacto" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Mira el impacto:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Recibe actualizaciones constantes sobre cómo tu aporte está transformando vidas.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TU CAMINO AL IMPACTO ══ -->
+  <section id="pasos" class="container mb-2" style="padding: 50px 0;">
+    <!-- Header -->
+    <div style="margin-bottom: 36px;">
+      <span style="background: #2cb378; color: white; padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;">Quiero Recaudar</span>
+      <h2 style="font-size: clamp(28px, 4vw, 42px); margin: 14px 0 10px; font-weight: 800; color: var(--dark);">Tu camino al impacto</h2>
+      <p style="color: var(--text-muted); max-width: 560px; line-height: 1.6; font-size: 15px;">Sigue estos pasos estratégicos para asegurar que tu campaña no solo sea vista, sino que logre su propósito.</p>
+    </div>
+
+    <!-- Fila 1: 2 tarjetas -->
+    <div class="pasos-fila1">
+
+      <!-- Paso 1 — Clara -->
+      <div style="background: #f4f6f5; border-radius: 20px; padding: 36px; display: flex; gap: 24px; align-items: flex-start;">
+        <div style="background: #e2e8e5; border-radius: 12px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" fill="none" stroke="#4a7c6a" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 800; color: #1a2e26; margin: 0 0 10px;">Paso 1: Cuenta tu Historia</h3>
+          <p style="color: #4a5568; font-size: 14px; line-height: 1.6; margin: 0 0 14px;">La empatía es el motor de la donación. Describe quién eres, qué quieres lograr y por qué es vital actuar ahora. Utiliza fotos nítidas y videos cortos que muestren la realidad de tu causa.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4a5568;">
+              <svg width="16" height="16" fill="none" stroke="#2cb378" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Usa lenguaje claro y directo
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4a5568;">
+              <svg width="16" height="16" fill="none" stroke="#2cb378" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Sube fotos reales (evita bancos de imágenes)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 2 — Oscura -->
+      <div style="background: #2a4a3e; border-radius: 20px; padding: 36px; color: white;">
+        <div style="background: rgba(255,255,255,0.12); border-radius: 12px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 style="font-size: 16px; font-weight: 800; margin: 0 0 12px;">Paso 2: Define tu Meta</h3>
+        <p style="color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.6; margin: 0 0 24px;">Establece un objetivo financiero realista. Incluye un desglose transparente de cómo se usará cada boliviano recaudado.</p>
+        <!-- Barra de progreso -->
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,.6); margin-bottom: 8px; font-weight: 600; letter-spacing: .5px;">
+            <span>EJEMPLO DE META</span><span>100% TRANSPARENCIA</span>
+          </div>
+          <div style="background: rgba(255,255,255,.15); border-radius: 999px; height: 8px; overflow: hidden;">
+            <div style="background: #f1b32b; width: 70%; height: 100%; border-radius: 999px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2: 3 tarjetas azules -->
+    <div class="pasos-fila2">
+
+      <!-- Paso 3 -->
+      <div style="background: linear-gradient(135deg, #1a73e8 0%, #1558c0 100%); border-radius: 20px; padding: 30px; color: white;">
+        <div style="background: rgba(255,255,255,0.15); border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-size: 15px; font-weight: 800; margin: 0 0 12px;">Paso 3: Verifica tu Identidad</h3>
+        <p style="color: rgba(255,255,255,.8); font-size: 13px; line-height: 1.6; margin: 0;">Cumplimos con normativas KYC en Bolivia para garantizar que los fondos lleguen a manos seguras. Proceso 100% digital y rápido.</p>
+      </div>
+
+      <!-- Paso 4 -->
+      <div style="background: linear-gradient(135deg, #1a73e8 0%, #1558c0 100%); border-radius: 20px; padding: 30px; color: white;">
+        <div style="background: rgba(255,255,255,0.15); border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <h3 style="font-size: 15px; font-weight: 800; margin: 0 0 12px;">Paso 4: Difunde y recauda</h3>
+        <p style="color: rgba(255,255,255,.8); font-size: 13px; line-height: 1.6; margin: 0 0 10px;">Comparte el enlace creado por WhatsApp, Instagram y Facebook. Como dato, el 70% de las donaciones provienen del círculo cercano en las primeras 48 horas.*</p>
+        <p style="color: rgba(255,255,255,.5); font-size: 11px; margin: 0; line-height: 1.4;">*"The Dynamics of Crowdfunding: Determinants of Success and Failure" Autor: Ethan Mollick (Wharton School of the University of Pennsylvania)</p>
+      </div>
+
+      <!-- Paso 5 -->
+      <div style="background: linear-gradient(135deg, #1a73e8 0%, #1558c0 100%); border-radius: 20px; padding: 30px; color: white;">
+        <div style="background: rgba(255,255,255,0.15); border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <h3 style="font-size: 15px; font-weight: 800; margin: 0 0 12px;">Paso 5: Retira tus Fondos</h3>
+        <p style="color: rgba(255,255,255,.8); font-size: 13px; line-height: 1.6; margin: 0;">Transfiere lo recaudado directamente a tu cuenta bancaria boliviana. Sin demoras innecesarias una vez finalizada la campaña.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ COMPROMISO DE TRANSPARENCIA ══ -->
+  <section class="mb-2" style="background: var(--dark); color: white; padding: 70px 0;">
+    <div class="container text-center">
+      <p class="hero-tagline" style="justify-content: center; color: rgba(255,255,255,.6);">
+        <span>Como administramos los fondos</span>
+      </p>
+      <h2 style="font-size: 36px; margin-bottom: 10px; font-weight: 800;">Compromiso de Transparencia</h2>
+      <p style="color: rgba(255,255,255,.65); max-width: 560px; margin: 0 auto 50px; font-size: 15px;">
+        Cada boliviano que confías en nosotros es administrado con total responsabilidad y rendido públicamente.
+      </p>
+
+      <div style="display: grid; grid-template-columns: auto 1fr; gap: 60px; align-items: center; max-width: 720px; margin: 0 auto; text-align: left;">
+
+        <!-- Donut chart -->
+        <div class="donut-wrap">
+          <svg viewBox="0 0 160 160">
+            <!-- Background track -->
+            <circle class="donut-bg" cx="80" cy="80" r="70"/>
+            <!-- Yellow slice: 10% starts after green (85%) -->
+            <!-- stroke-dasharray = circumference = 2πr ≈ 439.8 ≈ 440 -->
+            <!-- green: dashoffset = 440*(1-0.85) = 66 -->
+            <!-- yellow: offset = 440*(1-0.10) = 396, but must start after green gap -->
+            <circle class="donut-main"   cx="80" cy="80" r="70"/>
+            <circle class="donut-accent" cx="80" cy="80" r="70"
+              style="stroke-dasharray:44 396; stroke-dashoffset:-374;"/>
+          </svg>
+          <div class="donut-label">
+            <strong>85%</strong>
+            <span>DESTINO DIRECTO</span>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#2cb378; margin-top:4px;"></div>
+            <div>
+              <h4 style="color:#2cb378;">85% Impacto Directo</h4>
+              <p style="color:rgba(255,255,255,.65);">
+                La gran mayoría de cada donación va directamente al beneficiario sin ningún descuento adicional. Auditamos cada transferencia.
+              </p>
+            </div>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#f1b32b; margin-top:4px;"></div>
+            <div>
+              <h4 style="color:#f1b32b;">10% Costos Operativos</h4>
+              <p style="color:rgba(255,255,255,.65);">
+                Cubre la verificación de campañas, soporte técnico y los costos de las pasarelas de pago para mantener la plataforma activa.
+              </p>
+            </div>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background:#64748b; margin-top:4px;"></div>
+            <div>
+              <h4 style="color:rgba(255,255,255,.8);">5% Fondo de Reserva</h4>
+              <p style="color:rgba(255,255,255,.65);">
+                Reserva estratégica para garantizar la continuidad del servicio y responder ante imprevistos operativos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ (del home) ══ -->
+  <section class="faq-section">
+    <!-- Left: FAQ Accordion -->
+    <div class="faq-left">
+      <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item faq-item--active">
+          <button class="faq-question" aria-expanded="true">
+            <span>¿Cómo puedo estar seguro de que mi dinero llegará a la persona necesitada?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Contamos con un proceso de verificación rigurosa. Cada campaña debe subir documentos de identidad y respaldos médicos o legales antes de ser publicada. Además, los recaudadores están obligados a subir fotos de facturas y recibos de los gastos realizados para cerrar el ciclo de transparencia.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué métodos de pago puedo utilizar para donar?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Aceptamos pagos a través de QR Simple, transferencias bancarias y Tigo Money. Todos los métodos están integrados con Qhantuy para garantizar transacciones seguras y rastreables desde el primer boliviano hasta el último.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿La plataforma cobra alguna comisión por las donaciones?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Todos Somos - Qhantuy no cobra comisión sobre las donaciones. La plataforma es gratuita para donantes y recaudadores. Solo se aplican las tarifas estándar del método de pago elegido, que son mínimas y transparentes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo puedo iniciar mi propia campaña de recaudación?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Crea una cuenta, completa el formulario de solicitud con los documentos requeridos y nuestro equipo revisará tu caso en menos de 48 horas. Una vez aprobada, tu campaña estará visible para miles de donantes en toda Bolivia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="faq-right">
+      <img src="images/todos somos images/image_faq.jpg" alt="Impacto real de las donaciones" class="faq-image">
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

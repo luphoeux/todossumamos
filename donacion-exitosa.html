@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donación Exitosa | Todos Somos - Qhantuy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #fcfbf9; /* Very light warm background */
+      /* Sutil patrón de textura si es posible, o color sólido */
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.02' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .success-grid {
+      display: grid;
+      grid-template-columns: 1fr 450px;
+      gap: 60px;
+      align-items: center;
+      padding: 60px 0 100px 0;
+    }
+    
+    @media (max-width: 992px) {
+      .success-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+      }
+      .success-image-block { margin: 0 auto; order: -1; margin-bottom: 40px; }
+    }
+
+    .success-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .success-title {
+      font-size: 52px;
+      font-weight: 900;
+      color: #0b2b26;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .success-desc {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .receipt-box {
+      background: #f0f4ff; /* Light bluish */
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    
+    .receipt-bg-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 120px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .receipt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .receipt-label {
+      font-size: 10px;
+      font-weight: 800;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    
+    .receipt-value {
+      font-size: 24px;
+      font-weight: 900;
+      color: #0b2b26;
+    }
+    
+    .receipt-value-text {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0b2b26;
+      line-height: 1.3;
+    }
+
+    .transaction-pill {
+      background: white;
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+      position: relative;
+      z-index: 2;
+    }
+
+    .share-box {
+      background: #f0f4ff;
+      border-radius: 24px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .share-box { flex-direction: column; text-align: center; }
+    }
+
+    .share-btn {
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-wa { background: #25d366; }
+    .btn-fb { background: #1877f2; }
+    .btn-link { background: #4b635e; }
+
+    .btn-explore {
+      background: #000;
+      color: white;
+      border-radius: 24px;
+      padding: 16px 32px;
+      font-weight: 800;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-explore:hover { transform: scale(1.02); }
+
+    .success-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px;
+    }
+    
+    .success-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Wavy border radius as seen in design */
+      border-radius: 60px 20px 60px 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+  </style>
+</head>
+<body>
+
+  <app-header></app-header>
+
+  <main class="container">
+    <div class="success-grid">
+      
+      <!-- Text & Interactive Content -->
+      <div>
+        <div class="success-tagline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+          Comienza a ayudar a personas que lo necesiten
+        </div>
+        
+        <h1 class="success-title">¡Gracias por sumar<br>tu granito de arena!</h1>
+        
+        <p class="success-desc">Tu generosidad se traduce directamente en impacto. Gracias a personas como tú, estamos construyendo un futuro más humano y solidario en Bolivia.</p>
+        
+        <!-- Receipt Box -->
+        <div class="receipt-box">
+          <svg class="receipt-bg-icon" viewBox="0 0 24 24" fill="none" stroke="#0b2b26" stroke-width="2" stroke-linecap="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path></svg>
+          <div class="receipt-grid">
+            <div>
+              <div class="receipt-label">Monto Donado</div>
+              <div class="receipt-value" id="res-monto">Bs 350.00</div>
+            </div>
+            <div>
+              <div class="receipt-label">Campaña Apoyada</div>
+              <div class="receipt-value-text">Un Respiro para Doña Claudia</div>
+            </div>
+          </div>
+          <div class="transaction-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#25b6a7" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Transacción segura confirmada: <span style="font-weight:900;">#15456-992834</span>
+          </div>
+        </div>
+
+        <!-- Share Box -->
+        <div class="share-box">
+          <div>
+            <div style="font-weight: 800; color: #0b2b26; margin-bottom: 8px; font-size: 15px;">Multiplica tu impacto</div>
+            <p style="font-size: 13px; color: #555; line-height: 1.5; margin: 0;">Compartir esta causa con tus amigos y familiares ayuda a que lleguemos más rápido a la meta. ¡Invítalos a sumarse!</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="#" class="share-btn btn-wa">WhatsApp</a>
+            <a href="#" class="share-btn btn-fb">Facebook</a>
+            <a href="#" class="share-btn btn-link">Copiar enlace</a>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="campanas.html" class="btn-explore">
+            Seguir explorando otras causas
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Image Content -->
+      <div class="success-image-block">
+        <div class="success-img-wrapper">
+          <img src="images/todos somos images/login_1.jpg" alt="Doña Claudia" class="success-img">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Pequeño script para leer monto aleatorio si queremos simular (o agarrar de localStorage)
+    document.addEventListener('DOMContentLoaded', () => {
+      const qs = new URLSearchParams(window.location.search);
+      const monto = qs.get('monto') || '350.00';
+      document.getElementById('res-monto').innerText = `Bs ${monto}`;
+    });
+  </script>
+</body>
+</html>

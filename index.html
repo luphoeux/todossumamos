@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos Somos - Qhantuy | Solidaridad Digital</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <app-header></app-header>
+
+  <section class="hero-cover">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline" style="justify-content: center;">
+        <img src="images/todos somos images/heart.svg" alt="Heart Icon" style="width: 28px; height: 28px; object-fit: contain;"> 
+        <span>Comienza a cambiar realidades hoy</span>
+      </p>
+      <h1 class="hero-title">Ayudándonos mutuamente a hacer<br>un mundo mejor hoy</h1>
+      <p class="hero-subtitle">
+        Únete a nuestro programa de donaciones para proporcionar apoyo constante a nuestras iniciativas. Las contribuciones regulares, sin importar su tamaño, nos ayudan a planificar y mantener proyectos a largo plazo.
+      </p>
+      <a href="#quienes-somos" class="btn btn-outline hero-btn">
+        ¿Cómo funciona?
+        <svg class="icon-bounce" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="7 13 12 18 17 13"></polyline>
+          <polyline points="7 6 12 11 17 6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="quienes-somos" class="container mb-2" style="padding-top: 40px; padding-bottom: 40px;">
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center;">
+      
+      <!-- Imagen de la izquierda -->
+      <div style="text-align: center;">
+        <img src="images/todos somos images/quienes_somos_bg.png" alt="Quiénes somos - Solidaridad" style="width: 100%; max-width: 500px; height: auto; object-fit: contain;">
+      </div>
+      
+      <!-- Contenido de la derecha (Tarjetas) -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- Tarjeta Superior (Descripción) -->
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+          <p class="hero-tagline" style="justify-content: flex-start; font-size: 19px; margin-bottom: 12px; color: var(--primary);">
+            <img src="images/todos somos images/heart.svg" alt="Heart" style="width: 24px; height: 24px; object-fit: contain;">
+            <span style="font-family: 'Caveat', cursive;">¿Quiénes somos?</span>
+          </p>
+          <h2 style="font-size: 38px; margin-bottom: 20px; color: #113629; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px;">Tu apoyo cambia realidades</h2>
+          <p style="color: #4a5568; font-size: 17px; line-height: 1.6; margin-bottom: 0;">
+            Creemos en el poder de la solidaridad colectiva para transformar Bolivia. En Todos Sumamos contactamos corazones generosos con proyectos que necesitan un impulso para generar un impacto real y sostenible.
+          </p>
+        </div>
+
+        <!-- Tarjeta Inferior (Pasos para apoyar) -->
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+          
+          <!-- Pestañas (Tabs) -->
+          <div style="background: #F4F7F6; display: inline-flex; border-radius: 50px; padding: 6px; margin-bottom: 35px;">
+            <div style="background: #2cb378; color: white; padding: 10px 24px; border-radius: 50px; font-weight: 700; font-size: 15px; cursor: default;">Quiero Apoyar</div>
+            <a href="como-funciona.html#pasos" style="color: #718096; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s ease;">Quiero Recaudar</a>
+          </div>
+
+          <!-- Tres Pasos -->
+          <div style="display: flex; flex-direction: column; gap: 25px;">
+            
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso1.svg" alt="Encuentra una causa" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Encuentra una causa:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Explora cientos de historias verificadas que necesitan tu apoyo en todo el país.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso2.svg" alt="Dona con confianza" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Dona con confianza:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Utiliza métodos seguros como QR Simple para que tu ayuda llegue sin intermediarios.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 18px; align-items: flex-start;">
+              <img src="images/todos somos images/paso3.svg" alt="Mira el impacto" style="width: 42px; height: 42px; flex-shrink: 0;">
+              <div>
+                <h4 style="margin-bottom: 4px; font-weight: 800; color: #2d3748; font-size: 16px;">Mira el impacto:</h4>
+                <p style="color: #4a5568; font-size: 15px; margin: 0; line-height: 1.45;">Recibe actualizaciones constantes sobre cómo tu aporte está transformando vidas.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="campaigns-bg-section text-center mb-2">
+    <div class="container">
+      <p class="hero-tagline" style="justify-content: center;">
+        <img src="images/todos somos images/heart.svg" alt="Heart Icon" style="width: 28px; height: 28px; object-fit: contain;"> 
+        <span>Comienza a cambiar realidades hoy</span>
+      </p>
+      <h2 class="campaigns-sec-title">Sé la razón de la sonrisa de alguien</h2>
+      <p class="campaigns-sec-subtitle">Apoya las campañas más urgentes</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;" id="campaigns-grid">
+        <!-- Loading state -->
+        <div style="text-align: center; grid-column: 1 / -1; padding: 40px; color: var(--text-muted);">
+          <p>Cargando campañas solidarias...</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 50px; text-align: center;">
+        <a href="campanas.html" class="btn btn-campaign">Ver todas las campañas activas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-promo">
+    <div class="banner-promo__content">
+      <p class="hero-tagline" style="justify-content: center;">🤝 <span>Comienza a cambiar realidades hoy</span></p>
+      <h2 class="banner-promo__title">Transforma vidas con un pequeño gesto</h2>
+      <div class="banner-promo__actions">
+        <a href="campanas.html" class="btn btn-outline banner-promo__btn-outline">Ver todas las campañas activas</a>
+        <a href="login.html" class="btn btn-campaign">Crear mi campaña</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <!-- Left: FAQ Accordion -->
+    <div class="faq-left">
+      <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item faq-item--active">
+          <button class="faq-question" aria-expanded="true">
+            <span>¿Cómo puedo estar seguro de que mi dinero llegará a la persona necesitada?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Contamos con un proceso de verificación rigurosa. Cada campaña debe subir documentos de identidad y respaldos médicos o legales antes de ser publicada. Además, los recaudadores están obligados a subir fotos de facturas y recibos de los gastos realizados para cerrar el ciclo de transparencia.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué métodos de pago puedo utilizar para donar?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Aceptamos pagos a través de QR Simple, transferencias bancarias y Tigo Money. Todos los métodos están integrados con Qhantuy para garantizar transacciones seguras y rastreables desde el primer boliviano hasta el último.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿La plataforma cobra alguna comisión por las donaciones?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Todos Somos - Qhantuy no cobra comisión sobre las donaciones. La plataforma es gratuita para donantes y recaudadores. Solo se aplican las tarifas estándar del método de pago elegido, que son mínimas y transparentes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo puedo iniciar mi propia campaña de recaudación?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Crea una cuenta, completa el formulario de solicitud con los documentos requeridos y nuestro equipo revisará tu caso en menos de 48 horas. Una vez aprobada, tu campaña estará visible para miles de donantes en toda Bolivia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right: Image collage -->
+    <div class="faq-right">
+      <img src="images/todos somos images/image_faq.jpg" alt="Impacto real de las donaciones" class="faq-image">
+    </div>
+  </section>
+
+
+  <app-footer></app-footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

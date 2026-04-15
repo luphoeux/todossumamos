@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Pago Realizado! | Todos Somos - Qhantuy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .success-container {
+      max-width: 600px;
+      margin: 80px auto;
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: 50px 40px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+    .check-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #dcfce7;
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 20px;
+    }
+    .receipt-box {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 30px 0;
+      text-align: left;
+    }
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .receipt-row:last-child {
+      margin-bottom: 0;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body style="background-color: var(--bg-light);">
+
+  <app-header></app-header>
+
+  <main class="container">
+    <div class="success-container">
+      <div class="check-icon">✓</div>
+      <h1 style="font-size: 32px; margin-bottom: 10px;">¡Gracias por tu donación!</h1>
+      <p style="color: var(--text-muted);">Tu pago ha sido procesado exitosamente por Qhantuy.</p>
+
+      <div class="receipt-box">
+        <div class="receipt-row">
+          <span>ID de Transacción</span>
+          <span style="font-family: monospace;">QHTY-982374AB</span>
+        </div>
+        <div class="receipt-row">
+          <span>Fecha</span>
+          <span>09 Abril 2026</span>
+        </div>
+        <div class="receipt-row">
+          <span>Campaña</span>
+          <span style="font-weight: 500;">Un Respiro para Doña Claudia</span>
+        </div>
+        <div class="receipt-row">
+          <span>Monto Donado</span>
+          <span style="color: var(--primary);">Bs. 200.00</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: underline;">Volver a la página principal</a>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

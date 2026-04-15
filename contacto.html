@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Todos Somos - Qhantuy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+    .contact-info-block {
+      margin-bottom: 25px;
+    }
+    .contact-info-block h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <app-header></app-header>
+
+  <main class="container">
+    <div class="contact-container">
+      <div>
+        <h1 style="font-size: 36px; line-height: 1.2; margin-bottom: 20px;">Estamos aquí para escucharte</h1>
+        <p style="color: var(--text-muted); margin-bottom: 40px;">
+          Tu confianza es nuestra prioridad. Si tienes dudas sobre cómo donar, cómo crear tu campaña o quieres reportar un caso, nuestro equipo está listo para asistirte.
+        </p>
+        <div class="contact-info-block">
+          <h4>
+            <div style="width:40px;height:40px;border-radius:50%;background:#edf7f2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#2cb378" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            Ubicación
+          </h4>
+          <p style="color: var(--text-muted); padding-left: 50px;">La Paz, Bolivia.</p>
+        </div>
+        <div class="contact-info-block">
+          <h4>
+            <div style="width:40px;height:40px;border-radius:50%;background:#edf7f2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#2cb378" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            Escríbenos
+          </h4>
+          <p style="color: var(--text-muted); padding-left: 50px;">soporte@todossumamos.bo</p>
+        </div>
+        <div class="contact-info-block">
+          <h4>
+            <div style="width:40px;height:40px;border-radius:50%;background:#edf7f2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="#2cb378" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.126 1.529 5.862L.057 23.216a.75.75 0 0 0 .908.908l5.354-1.472A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.524-5.188-1.434l-.372-.215-3.854 1.06 1.06-3.854-.215-.372A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </div>
+            WhatsApp Directo
+          </h4>
+          <p style="color: var(--text-muted); padding-left: 50px;">+591 65558742</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size: 24px; margin-bottom: 10px;">Envíanos un mensaje rápido.</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Te responderemos en menos de 24 horas hábiles. Todos los campos son necesarios.</p>
+        <form id="contact-form">
+          <div class="form-group">
+            <label class="form-label">Asunto *</label>
+            <select class="form-control" required>
+              <option>Duda sobre donación</option>
+              <option>Crear una campaña</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nombre y apellidos *</label>
+            <input type="text" class="form-control" placeholder="Ej. Alberto Crespo" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Correo electrónico *</label>
+            <input type="email" class="form-control" placeholder="nombre@empresa.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje *</label>
+            <textarea class="form-control" placeholder="Déjanos un mensaje..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
