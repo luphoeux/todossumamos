@@ -186,9 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const allCampaignsGridPage = document.getElementById('all-campaigns-grid');
   if (allCampaignsGridPage) {
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpWWo7P-c71ljdvMgk2u-ZLH_CV9i-eu1nMxN5XJPjr9c-slnQVvx-djOtwEcYzCKaUimvsz30f8gz/pub?output=csv';
-    const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(csvUrl);
-
-    fetch(proxyUrl)
+    fetch(csvUrl)
       .then(response => response.text())
       .then(csvText => {
         const rows = csvText.split(/\r?\n/).filter(line => line.trim() !== '');
